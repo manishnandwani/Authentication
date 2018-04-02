@@ -1,0 +1,104 @@
+<html ng-app="login">
+    <head>
+        <title>Firebase Assignment</title>
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script>
+                                        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCfG864gaZnpdgbI6ef2cp2A2ktAR8BPRU",
+            authDomain: "assignment-8c00e.firebaseapp.com",
+            databaseURL: "https://assignment-8c00e.firebaseio.com",
+            projectId: "assignment-8c00e",
+            storageBucket: "",
+            messagingSenderId: "694193662930"
+        };
+            firebase.initializeApp(config);
+        </script>
+
+        <script src="node_modules/angularfire/dist/angularfire.js"></script>
+        <script src="app.js"></script>
+
+        <style>
+            h1{
+                text-align: center;
+                color: rgb(41, 224, 224);
+                font-size: 60px;
+                font-family: "Times New Roman", Times, serif;
+            }
+            body{
+                background-image: url("image.jpg")
+            }
+            .back{
+                cursor: pointer;
+                font-size: 30px;
+                display: inline-block;
+            
+            }
+            #b1{
+                padding: 250px;
+                padding-top: 150px;
+                padding-bottom: 100px;
+            }
+            #b2{
+                padding: 250px;
+                padding-top: 150px;
+                padding-bottom: 100px;
+            }
+            #b3{
+                padding: 250px;
+                padding-top: 10px;
+            }
+            #b4{
+                padding: 250px;
+                padding-top: 10px;
+            }
+            .para{
+                font-size:100px;
+                color: rgba(236, 120, 12, 0.815);
+                font-family: "Times New Roman", Times, serif;
+                text-align: center;
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+        <div ng-controller="firstCtrl as first">
+            <h1>Athentication WEB-APP</h1>
+         <div class="para" ng-hide="first.check()">  {{first.user.displayName}} is Login.
+        </div>
+          <div class="container-fluid" ng-show="first.check()"> 
+            <div class="row">
+               <div id="b1"class="col-xs-12 col-md-6">
+                    <button  class="btn btn-danger back"  ng-click="first.googlelogin()">
+                        <i class="fa fa-google" aria-hidden="true"></i> Google Login
+                    </button>
+               </div>
+               <div id="b2" class="col-xs-12 col-md-6 "  >
+                    <button class="btn btn-primary back" ng-click="first.facebooklogin()">
+                        <i class="fa fa-facebook" aria-hidden="true"></i> Facebook Login
+                    </button>
+               </div>
+               <div id="b3" class="col-xs-12 col-md-6">
+                    <button class="btn btn-info back" ng-click="first.twitterlogin()">
+                        <i class="fa fa-twitter" aria-hidden="true"></i> Twitter Login
+                    </button>
+               </div>
+               <div id="b4" class="col-xs-12 col-md-6">
+                    <button class="btn btn-secondary back" ng-click="first.githublogin()">
+                        <i class="fa fa-github" aria-hidden="true"></i> Github Login
+                    </button>
+               </div>
+            </div>    
+          </div>
+        </div>
+    </body>
+</html>
